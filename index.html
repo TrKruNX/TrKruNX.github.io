@@ -10,61 +10,10 @@
         body {
             background-color: dimgrey;
         }
-
-        /* Centers the carousel on the screen */
-        .carousel-container {
-            position: relative;
-            max-width: 600px;
-            margin: auto;
-            overflow: hidden;
-            border-radius: 8px;
-        }
-
-        /* Sets a fixed size for the images */
-        .carousel-slides img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            display: none; /* Hides all images by default */
-        }
-
-            /* Shows only the active image */
-            .carousel-slides img.active {
-                display: block;
-            }
-
-        /* Style for both navigation buttons */
-        .nav-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            font-size: 24px;
-            padding: 12px 16px;
-            cursor: pointer;
-            border-radius: 50%;
-        }
-
-            .nav-btn:hover {
-                background-color: rgba(0, 0, 0, 0.8);
-            }
-
-        /* Positions the left button on the left edge */
-        .left-btn {
-            left: 10px;
-        }
-
-        /* Positions the right button on the right edge */
-        .right-btn {
-            right: 10px;
-        }
     </style>
 
 </head>
-<body>
-    <!-- This is the area where all content is places, links, text, videos, pictures -->
+<body>  <!-- This is the area where all content is places, links, text, videos, pictures -->
     <h1> Project Desert Remediation </h1>
     - Is a game about turning the desert in to a rain forest.
 
@@ -76,51 +25,10 @@
         </p>
 
         <a href="https://www.youtube.com/@Crit_Studio">
-            <img src="./Pictures/Youtube_logo.png" alt="Youtube_logo.png" style="max-width: 25%; height: auto;">
-        </a> <!-- <a> has attributes, <a href""> is to add links -->
+    <img src="./Pictures/Youtube_logo.png" alt="Youtube_logo.png" style="max-width: 25%; height: auto;">
+    </a> <!-- <a> has attributes, <a href""> is to add links -->
 
     </div>
-
-    <div class="carousel-container">
-        <!-- The Images (Add your own URLs here) -->
-        <div class="carousel-slides">
-            <img class="active" src="https://picsum.photos" alt="Image 1">
-            <img src="https://picsum.photos" alt="Image 2">
-            <img src="https://picsum.photos" alt="Image 3">
-            <img src="https://picsum.photos" alt="Image 4">
-        </div>
-
-        <!-- The Navigation Buttons -->
-        <button class="nav-btn left-btn" type="button" onclick="changeSlide(-1)">&10094;</button>
-        <button class="nav-btn right-btn" type="button" onclick="changeSlide(1)">&10095;</button>
-    </div>
-
-    <script>// Keep track of which image is currently showing
-    let currentSlideIndex = 0;
-
-    function changeSlide(direction) {
-      // 1. Get all the images from the HTML
-      const slides = document.querySelectorAll('.carousel-slides img');
-
-      // 2. Hide the current active image
-      slides[currentSlideIndex].classList.remove('active');
-
-      // 3. Calculate the next index
-      currentSlideIndex += direction;
-
-      // 4. Wrap around logic:
-      // If we go past the last image, go back to the first (0)
-      if (currentSlideIndex >= slides.length) {
-        currentSlideIndex = 0;
-      }
-      // If we go before the first image, go to the last one
-      if (currentSlideIndex < 0) {
-        currentSlideIndex = slides.length - 1;
-      }
-
-      // 5. Show the new active image
-      slides[currentSlideIndex].classList.add('active');
-    }</script>
 
 </body>
 </html>
