@@ -63,7 +63,8 @@
     </style>
 
 </head>
-<body>  <!-- This is the area where all content is places, links, text, videos, pictures -->
+<body>
+    <!-- This is the area where all content is places, links, text, videos, pictures -->
     <h1> Project Desert Remediation </h1>
     - Is a game about turning the desert in to a rain forest.
 
@@ -80,7 +81,46 @@
 
     </div>
 
-    
+    <div class="carousel-container">
+        <!-- The Images (Add your own URLs here) -->
+        <div class="carousel-slides">
+            <img class="active" src="https://picsum.photos" alt="Image 1">
+            <img src="https://picsum.photos" alt="Image 2">
+            <img src="https://picsum.photos" alt="Image 3">
+            <img src="https://picsum.photos" alt="Image 4">
+        </div>
+
+        <!-- The Navigation Buttons -->
+        <button class="nav-btn left-btn" type="button" onclick="changeSlide(-1)">&10094;</button>
+        <button class="nav-btn right-btn" type="button" onclick="changeSlide(1)">&10095;</button>
+    </div>
+
+    <script>// Keep track of which image is currently showing
+    let currentSlideIndex = 0;
+
+    function changeSlide(direction) {
+      // 1. Get all the images from the HTML
+      const slides = document.querySelectorAll('.carousel-slides img');
+
+      // 2. Hide the current active image
+      slides[currentSlideIndex].classList.remove('active');
+
+      // 3. Calculate the next index
+      currentSlideIndex += direction;
+
+      // 4. Wrap around logic:
+      // If we go past the last image, go back to the first (0)
+      if (currentSlideIndex >= slides.length) {
+        currentSlideIndex = 0;
+      }
+      // If we go before the first image, go to the last one
+      if (currentSlideIndex < 0) {
+        currentSlideIndex = slides.length - 1;
+      }
+
+      // 5. Show the new active image
+      slides[currentSlideIndex].classList.add('active');
+    }</script>
 
 </body>
 </html>
